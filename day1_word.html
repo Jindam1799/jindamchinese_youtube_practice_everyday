@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>진담중국어 - 단어 뜻 맞추기</title>
+    <link rel="stylesheet" href="day1_choice_style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <button class="back-btn" onclick="location.href = 'index.html'">
+        ◀ 로비로
+      </button>
+
+      <div id="start-screen">
+        <h2>기초 단어장</h2>
+        <p>제시된 중국어 단어의<br />알맞은 한국어 뜻을 고르세요!</p>
+        <button id="start-btn" onclick="startGame()">학습 시작</button>
+      </div>
+
+      <div id="game-board" style="display: none">
+        <div class="header">
+          <div id="progress">진행도: 1 / 15</div>
+          <div id="score">정답: 0</div>
+        </div>
+
+        <div class="question-box">
+          <div
+            id="ko-question"
+            style="font-size: 2.5em; color: var(--text-main)"
+          >
+            我
+          </div>
+          <div
+            id="q-pinyin"
+            style="font-size: 1.2em; color: #888; margin-top: 5px"
+          >
+            wǒ
+          </div>
+        </div>
+
+        <div id="feedback-msg"></div>
+
+        <div class="choices-area">
+          <button class="choice-btn" id="btn-0" onclick="selectAnswer(0)">
+            <span class="cn-text" id="ko-text-0"></span>
+          </button>
+          <button class="choice-btn" id="btn-1" onclick="selectAnswer(1)">
+            <span class="cn-text" id="ko-text-1"></span>
+          </button>
+          <button class="choice-btn" id="btn-2" onclick="selectAnswer(2)">
+            <span class="cn-text" id="ko-text-2"></span>
+          </button>
+          <button class="choice-btn" id="btn-3" onclick="selectAnswer(3)">
+            <span class="cn-text" id="ko-text-3"></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="result-screen" style="display: none">
+        <h2>학습 완료!</h2>
+        <p id="final-score">총 15문제 중 0문제 정답</p>
+        <button id="start-btn" onclick="location.reload()">
+          다시 복습하기
+        </button>
+        <button
+          id="start-btn"
+          style="background-color: #4caf50; margin-top: 10px"
+          onclick="location.href = 'day1_choice.html'"
+        >
+          Step 2 문장 게임으로 가기 ▶
+        </button>
+      </div>
+    </div>
+
+    <script src="day1_word_script.js"></script>
+  </body>
+</html>
