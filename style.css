@@ -32,19 +32,21 @@ body {
 .lobby-header p {
   color: #666;
   margin-top: 0;
+  font-size: 0.9em;
 }
 
+/* 💡 핵심: 좌우 2열 배치 (Grid) */
 .stage-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 화면을 1:1 비율의 2칸으로 나눔 */
+  gap: 15px; /* 카드 사이의 간격 */
 }
 
 /* 스테이지 카드 공통 스타일 */
 .stage-card {
   background-color: var(--card-bg);
   border-radius: 15px;
-  padding: 20px;
+  padding: 15px; /* 좌우 너비가 좁아지므로 여백을 조금 줄임 */
   text-decoration: none;
   color: var(--text-main);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -53,29 +55,34 @@ body {
     box-shadow 0.2s;
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* 내용이 적어도 버튼을 항상 맨 아래로 밀어냄 */
   position: relative;
   border: 2px solid transparent;
+  box-sizing: border-box;
 }
 
 .day-badge {
   background-color: var(--primary);
   color: white;
   font-weight: bold;
-  padding: 5px 12px;
+  padding: 5px 10px;
   border-radius: 20px;
   align-self: flex-start;
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin-bottom: 10px;
 }
 
 .stage-card h3 {
   margin: 0 0 5px 0;
-  font-size: 1.3em;
+  font-size: 1.1em; /* 글자 크기 살짝 축소 */
+  word-break: keep-all; /* 단어 단위로 줄바꿈되게 하여 깔끔하게 보임 */
 }
 
 .stage-card p {
   margin: 0 0 15px 0;
   color: #777;
+  font-size: 0.85em; /* 글자 크기 살짝 축소 */
+  word-break: keep-all;
 }
 
 .play-btn {
@@ -83,8 +90,9 @@ body {
   font-weight: bold;
   color: var(--primary);
   background-color: #fff0eb;
-  padding: 8px 15px;
+  padding: 6px 12px;
   border-radius: 8px;
+  font-size: 0.85em;
 }
 
 /* 활성화된 카드 (Day 1) */
@@ -94,17 +102,38 @@ body {
   border-color: var(--primary);
 }
 
-/* 잠긴 카드 (Day 2, 3...) */
+/* 💡 잠긴 카드 (Day 2 등) 설정 */
 .stage-card.locked {
   background-color: #e9e9e9;
   color: #999;
   cursor: not-allowed;
+  grid-column: 1 / -1; /* 가로 2칸을 모두 차지하도록 확장 (100% 너비) */
+  align-items: center; /* 전체 너비일 때 내용물을 가운데 정렬 */
+  text-align: center;
 }
 
 .stage-card.locked .day-badge {
   background-color: #aaa;
+  align-self: center; /* 뱃지도 가운데로 정렬 */
 }
 .stage-card.locked .play-btn {
   background-color: #ddd;
   color: #888;
+}
+
+/* 진담중국어 워터마크 */
+body::after {
+  content: '진담중국어';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  font-size: 6em;
+  font-weight: 900;
+  color: var(--primary);
+  opacity: 0.06;
+  z-index: -1;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
 }
