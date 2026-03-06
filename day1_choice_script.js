@@ -4,6 +4,7 @@ const subjects = [
   { hanzi: '他', pinyin: 'tā', ko: '그는' },
   { hanzi: '她', pinyin: 'tā', ko: '그녀는' },
   { hanzi: '老师', pinyin: 'lǎoshī', ko: '선생님은' },
+  { hanzi: '您', pinyin: 'nín', ko: '당신은' },
   { hanzi: '大家', pinyin: 'dàjiā', ko: '여러분은' },
 ];
 
@@ -12,12 +13,17 @@ const verbs = [
   { hanzi: '喝', pinyin: 'hē', ko: '마신다' },
   { hanzi: '吃', pinyin: 'chī', ko: '먹는다' },
   { hanzi: '来', pinyin: 'lái', ko: '온다' },
+  { hanzi: '聊', pinyin: 'liáo', ko: '이야기한다' },
+  { hanzi: '学', pinyin: 'xué', ko: '배운다' },
   { hanzi: '买', pinyin: 'mǎi', ko: '산다' },
+  { hanzi: '写', pinyin: 'xiě', ko: '쓴다' },
+  { hanzi: '有', pinyin: 'yǒu', ko: '있다 / 가지고 있다' },
   { hanzi: '看', pinyin: 'kàn', ko: '본다' },
+  { hanzi: '是', pinyin: 'shì', ko: '~이다 / ~입니다' },
   { hanzi: '去', pinyin: 'qù', ko: '간다' },
 ];
 
-const TOTAL_QUESTIONS = 15;
+const TOTAL_QUESTIONS = 20;
 let currentQuestionIndex = 0;
 let correctAnswersCount = 0;
 let isClickable = true;
